@@ -36,8 +36,8 @@ function AnimeCard({ anime, index }: Prop) {
                     src={`https://shikimori.one${anime.image.original}`}
                     alt={anime.name}
                     fill 
-                    objectFit="cover"
-                    className="rounded-xl"
+                    sizes="100%"
+                    className="rounded-xl object-cover"
                 />
             </div>
             <div className="py-4 flex flex-col gap-3">

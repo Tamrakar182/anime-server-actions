@@ -5,21 +5,25 @@ import { useInView } from "react-intersection-observer";
 import { fetchAnime } from "@/app/action";
 
 let page = 2;
-
 type AnimeCard = JSX.Element;
 
 function LoadMore() {
   const { ref, inView } = useInView();
   const [data, setData] = useState<AnimeCard[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (inView) {
+      setIsLoading(true);
       fetchAnime(page).then((res) => {
         setData([...data, ...res]);
         page++;
+        setIsLoading(res.length > 0);
+        console.log(res.length > 0);
       })
     }
-  }, [inView, data])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView])
 
   return (
     <>
@@ -28,13 +32,15 @@ function LoadMore() {
       </section>
       <section className="flex justify-center items-center w-full">
         <div ref={ref}>
-          <Image
-            src="./spinner.svg"
-            alt="spinner"
-            width={56}
-            height={56}
-            className="object-contain"
-          />
+          {isLoading && (
+            <Image
+              src="./spinner.svg"
+              alt="spinner"
+              width={56}
+              height={56}
+              className="object-contain"
+            />
+          )}
         </div>
       </section>
     </>
