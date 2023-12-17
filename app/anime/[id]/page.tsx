@@ -1,6 +1,7 @@
 import { fetchAnimeById } from '@/app/action'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import AnimePage from '@/components/AnimePage'
 
 type Props = {
     params: {
@@ -25,7 +26,7 @@ export default async function Anime({ params }: Props) {
 
     return (
         <main className="sm:p-16 py-16 px-8 flex flex-col gap-10">
-            <h2 className="text-3xl text-white font-bold">{anime.title}</h2>
+          <AnimePage anime={anime} />
         </main>
     )
 }
