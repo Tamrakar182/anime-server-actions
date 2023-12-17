@@ -6,7 +6,7 @@ function Footer() {
       <p className="text-base font-bold text-white">@ServerActions</p>
       <div className="flex items-center gap-6">
         <Image
-          src="./instagram.svg"
+          src="/instagram.svg"
           alt="logo"
           sizes="100%"
           width={19}
@@ -14,7 +14,7 @@ function Footer() {
           className="object-contain"
         />
         <Image
-          src="./twitter.svg"
+          src="/twitter.svg"
           alt="logo"
           sizes="100%"
           width={19}

@@ -13,7 +13,7 @@ export interface AnimeItem {
     score: number;
 }
 
-interface Anime {
+export interface Anime {
     mal_id: number;
     url: string;
     images: {
@@ -37,8 +37,4 @@ interface Anime {
     synopsis: string;
     season: string;
     year: number;
-}
-  
-interface AnimeData {
-    data: Anime;
 }
