@@ -1,11 +1,44 @@
 export interface AnimeItem {
-    id: string;
-    name: string;
-    image: {
-        original: string;
+    mal_id: number;
+    title: string;
+    images: {
+        jpg: {
+            image_url: string;
+            small_image_url: string;
+            large_image_url: string;
+        };
     };
-    kind: string;
+    type: string;
     episodes: number;
-    episodes_aired: number;
-    score: string;
+    score: number;
+}
+
+interface Anime {
+    mal_id: number;
+    url: string;
+    images: {
+      jpg: {
+        image_url: string;
+        small_image_url: string;
+        large_image_url: string;
+      };
+    };
+    title: string;
+    title_english: string;
+    title_japanese: string;
+    type: string;
+    episodes: number;
+    status: string;
+    airing: boolean;
+    rating: string;
+    score: number;
+    rank: number;
+    popularity: number;
+    synopsis: string;
+    season: string;
+    year: number;
+}
+  
+interface AnimeData {
+    data: Anime;
 }
